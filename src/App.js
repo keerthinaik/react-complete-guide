@@ -1,23 +1,6 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person'
-
-const StyledButton = styled.button`
-    background-color: ${props => props.alt ? 'red': 'green'};
-    color: white;
-    font: inherit;
-    border: None;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${props => props.alt ? 'salmon': 'lightgreen'};
-        color: black;
-    }
-`;
-
 
 class App extends Component {
     state = {
@@ -29,6 +12,8 @@ class App extends Component {
         otherState: 'Some other value',
         showPersons: false
     };
+
+
 
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(p => {
@@ -70,9 +55,16 @@ class App extends Component {
 
     render() {
 
+        const style = {
+            backgroundColor: 'green'
+        };
+
         let persons = null;
 
+        style.backgroundColor = 'green';
+
         if (this.state.showPersons) {
+            style.backgroundColor = 'red';
             persons = (
                 <div>
                     {
@@ -102,10 +94,10 @@ class App extends Component {
             <div className="App">
                 <h1>Hi, I'm a React app</h1>
                 <p className={classes.join(' ')}>This is really working!</p>
-                <StyledButton
-                    alt={this.state.showPersons}
+                <button
+                    style={style}
                     onClick={() => this.togglePersonsHandler('Maxmilian!!')}>Toggle Names
-                </StyledButton>
+                </button>
                 {persons}
             </div>
         );
