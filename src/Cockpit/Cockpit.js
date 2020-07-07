@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from "./Cockpit.css";
 
 const cockpit = ( props ) => {
+
+    useEffect(() => {
+        // runs when component is mounted
+        console.log('[Cockpit.js] useEffect');
+
+        // Http requests
+        const timer = setTimeout(() => {
+            alert('saved data to cloud');
+        }, 2000);
+        return () => {
+            // runs when component is unmounted
+            clearTimeout(timer);
+            console.log('[Cockpit.js] clean up work in useEffect');
+        }
+    }, [props.persons]); // it implies useEffect will execute only when the persons changed.
 
     const assignedClasses = [];
     let btnClass = '';
