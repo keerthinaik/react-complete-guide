@@ -1,7 +1,7 @@
-import React ,{ Component } from 'react'
+import React ,{ PureComponent } from 'react'
 import Person from "./Person/Person";
 
-class Persons extends Component{
+class Persons extends PureComponent{
 
     // static getDerivedStateFromProps(props, state){
     // initial state is null gives warning so we have commented this line
@@ -9,14 +9,17 @@ class Persons extends Component{
     //     return state;
     // }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log('[Persons.js] shouldComponentUpdate');
-        if (nextProps.persons !== this.props.persons) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    // instead of this make use of PureComponent
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     console.log('[Persons.js] shouldComponentUpdate');
+    //     if (nextProps.persons !== this.props.persons
+    //         || nextProps.props.changed !== this.props.changed
+    //         || nextProps.props.clicked !== this.props.clicked) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // };
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
