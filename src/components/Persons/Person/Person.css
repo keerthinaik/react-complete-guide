@@ -1,10 +1,11 @@
 .Person {
     width: 60%;
-    margin: auto;
-    border: 1px solid orangered;
+    margin: 30px auto;
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+    font-weight: bold;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 @media (min-width: 500px) {
